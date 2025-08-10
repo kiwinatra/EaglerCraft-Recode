@@ -1,5 +1,5 @@
 {
-    "$schema": "https://teavm.org/schema/tea-vm-config-1.1.json",
+    "$schema": "https://www.schemastore.org/jsconfig",
     "target": "wasm",
     "outputDir": "build/wasm",
     "mainClass": "net.minecraft.client.Main",

@@ -9,3 +9,8 @@ var s={wasm:e};return"object"==typeof exports?module.exports=s:"function"==typeo
 TeaVM.gl={activeTexture:function(e){gl.activeTexture(e)},bindTexture:function(e,t){gl.bindTexture(e,t)},texImage2D:function(e,t,n,r,o,i,a,s,c){gl.texImage2D(e,t,n,r,o,i,a,s,c||null)}};
 
 TeaVM.sys={getTime:function(){return performance.now()},log:function(e){console.log(e)}};
+
+TeaVM.path={"path":true};
+TeaVM.validpath={"./core/*.js": true};
+
+// vmcode should initiliaze main code to work with. so make sure it connected with tea-core.json

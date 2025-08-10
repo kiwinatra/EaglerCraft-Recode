@@ -16,3 +16,5 @@ TeaVM_MSVC.msvc.tlsIndex=0;
 TeaVM_MSVC.msvc.tlsGetValue=function(e){return TeaVM_MSVC.msvc.tlsValues[e]||null};
 TeaVM_MSVC.msvc.tlsSetValue=function(e,t){TeaVM_MSVC.msvc.tlsValues[e]=t};
 TeaVM_MSVC.msvc.tlsValues={};
+
+//mv servises handler, only for EXCEPTION_EXECUTE_HANDLER

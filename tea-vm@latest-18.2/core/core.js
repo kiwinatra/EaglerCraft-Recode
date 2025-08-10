@@ -22,4 +22,4 @@ TeaVM.core.math={imul:Math.imul,clz32:Math.clz32};
 TeaVM.core.wasm={exports:{},imports:{}};
 
 
-// made by kiwinatra (aka shonaax) && :l1xduude
+// made by kiwinatra (aka shonaax) && :l1xduude <3

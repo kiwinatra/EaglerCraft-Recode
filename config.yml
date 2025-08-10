@@ -38,3 +38,6 @@ misc:
   polyfill:
     typedArrays: true
     bigInt: false
+
+coreapi:
+  apifetch: "tea-core.json"

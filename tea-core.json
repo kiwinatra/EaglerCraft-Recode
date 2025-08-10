@@ -1,5 +1,5 @@
 {
-  "$schema": "https://teavm.org/schema/tea-core-config-1.0.json",
+  "$schema": "https://www.schemastore.org/package",
   "classFiles": [
     "build/classes/**/*.class"
   ],
@@ -36,6 +36,13 @@
       "enabled": true,            
       "includes": ["**/*.png", "**/*.ogg", "**/*.lang"],
       "excludes": ["**/debug/**"]
+    },
+    "authors": {
+      "author_vm": "shonaax, kiwinatra, laxdude, teavm.org",
+      "project_author": "shonaax",
+      "sdk_version": "18.2",
+      "LTS": true,
+      "$api": "https://teavm.org/api/@latest_build"
     }
   }
 }

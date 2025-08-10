@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор версии EaglerCraft</title>
+    <link rel="preload" href="loader.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+</head>
+<body>
+    <!-- Анимированные круги на фоне -->
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+    
+    <!-- Стеклянный контейнер с выбором версии -->
+    <div class="glass-container">
+        <h1 class="title">Выберите версию</h1>
+        
+        <div class="btn-container">
+            <a href="wasm/index.html" class="btn btn-primary">Полная версия</a>
+            <a href="m/index.html" class="btn btn-outline">Оптимизированная</a>
+        </div>
+        
+        <div class="remember-container" id="rememberContainer">
+            <div class="remember-checkbox" id="rememberCheckbox"></div>
+            <span class="remember-text">Больше не показывать</span>
+        </div>
+    </div>
+
+    <script src="loader.js"> </script>
+    <div class="water-effect">
+    <div class="water"></div>
+    <div class="water"></div>
+    <div class="water"></div>
+</div>
+</body>
+</html>

@@ -3,6 +3,7 @@ module tea.vm.goms32;
 import tea.vm.core;
 import tea.vm.wasm;
 
+// ээээ ааааа
 
 extern (C) {
     enum WASM_PAGE_SIZE = 65536;

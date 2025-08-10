@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eagler Craft - Играй в Minecraft в браузере</title>
+    <title>EaglerCraft - Играй в Minecraft в браузере</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preload" href="static/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="static/main.min.css"></noscript>
+    <link rel="preload" href="static/modal.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
 </head>
 <body>
     <div class="cursor"></div>
@@ -17,7 +18,7 @@
 
     <nav class="nav">
         <div class="nav-content">
-            <a href="#" class="nav-logo">Eagler Craft</a>
+            <a href="#" class="nav-logo">EaglerCraft</a>
             <div class="nav-links">
                 <a href="#features" class="nav-link">Возможности</a>
                 <a href="#play" class="nav-link">Играть</a>
@@ -29,21 +30,16 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text-wrapper">
-                <h1 class="hero-title">Погрузись в мир<br><span class="gradient-text">Minecraft</span></h1>
-                <p class="hero-subtitle">Играй в любимую игру прямо в браузере. Без скачивания, без установки.</p>
+                <h1 class="hero-title">Новый<br><span class="gradient-text">EaglerCraft Recode</span></h1>
+                <p class="hero-subtitle">Играй в Minecraft прямо в браузере. С мультиплееpом и доступом ко всему.>
                 <div class="hero-buttons">
-                    <a href="wasm/index.html" class="btn btn-primary">
-                        <span class="btn-content">
-                            <span class="btn-text">Играть сейчас</span>
+                    <a href="#" id="play-btn" class="btn btn-primary">
+                      <span class="btn-content">
+                        <span class="btn-text">Играть</span>
                             <i class="fas fa-arrow-right"></i>
                         </span>
                     </a>
-                    <a href="m/index.html" class="btn btn-secondary">
-                        <span class="btn-content">
-                            <span class="btn-text">Мобильная версия</span>
-                            <i class="fas fa-info-circle"></i>
-                        </span>
-                    </a>
+                    
                 </div>
             </div>
             <div class="hero-image">
@@ -91,11 +87,31 @@
         </div>
     </section>
 
+    <div id="versionModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Выберите версию</h3>
+    <div class="version-options">
+      <div class="version-btn" onclick="window.location.href='loader/loader.html?to=full'">
+        Версия 1.12.2 (stable)
+      </div>
+      <div class="version-btn" onclick="window.location.href='loader/loader.html?to=lite'">
+        Оптимизированная версия + мобильная
+      </div>
+      <div class="version-btn" onclick="window.location.href='servers/servers.html'">
+        Сервера
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <link rel="preload" href="static/log.js" as="script">
     <script src="static/log.js" defer></script>
     <link rel="preload" href="static/main.js" as="script">
     <script src="static/main.js" defer></script>
+    <link rel="preload" href="static/modal.js" as="script">
+    <script src="static/modal.js" defer></script>
     
 </body>
 </html> 

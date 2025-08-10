@@ -22,7 +22,9 @@
 		const domainStr = domain;
 		return (cid, path) => { return "https://" + cid + ".ipfs." + domain + "/" + path; };
 	}
-
+						// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+						// PATTERN VARIATIONS
+						// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	const IPFS_GATEWAYS = [
 		makePatternA("gateway.ipfs.io"),
 		makePatternB("4everland.io"),
