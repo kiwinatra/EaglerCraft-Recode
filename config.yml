@@ -1,0 +1,40 @@
+runtime:
+  debug: false
+  heapSize: 64
+  stackSize: 2
+  gc: "incremental"
+
+resources:
+  basePath: "/assets/"
+  cache: true
+  preload:
+    - "textures/**"
+    - "sound/**"
+    - "lang/en_US.lang"
+
+browser:
+  canvas: "#game-frame"
+  resize: "stretch"
+  preventContextMenu: true
+  pointerLock: true
+
+network:
+  websocket:
+    enabled: true
+    reconnect: true
+    timeout: 5000
+  cors:
+    enabled: false
+    credentials: false
+
+filesystem:
+  enabled: true
+  persist: true
+  quota: 256
+
+misc:
+  logLevel: "warn"
+  unsupportedWarn: true
+  polyfill:
+    typedArrays: true
+    bigInt: false

@@ -1,0 +1,80 @@
+<main class="game fr-1x px"
+id="wrapper"
+data-id="wrap-launch">
+
+<h1 data-i8ao=":text">View for this file is disabled.</h1>
+
+<div class="flscr" id="game-frame"><!--game should appear here--></div>
+
+<noscript>
+    <h1>Упс, что-то сломалось</h1>
+    <p>Похоже, что выключили JavaScript</p>
+    <code>
+        <pre>
+            ERR_JAVASCRIPT_DISABLED
+        </pre>
+    </code>
+</noscript>
+<script src="./core/vmcore.wasm" type="application/wasm" async>
+
+</script>
+<script>
+    !function loader() {
+        return null
+    }
+</script>
+<!--<script>
+"use strict";
+
+const langConfig = {
+  defaultLang: 'ru',
+  availableLangs: ['ru', 'eng'],
+  translations: {
+    ru: {
+      "oops-text": "Упс, что-то сломалось",
+      "sub-error-text": "Добро пожаловать"
+    },
+    eng: {
+      "oops-text": "Oops, something went wrong",
+      "welcome": "Welcome"
+    }
+  }
+};
+
+function loadLanguage(lang = langConfig.defaultLang) {
+  try {
+    if (!langConfig.availableLangs.includes(lang)) {
+      lang = langConfig.defaultLang;
+    }
+
+    const translations = langConfig.translations[lang];
+    if (!translations) return;
+
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.dataset.i18n;
+      if (translations[key]) {
+        element.textContent = translations[key];
+      }
+    });
+
+    document.body.innerHTML = document.body.innerHTML.replace(
+      /\{([^}]+)\}/g, 
+      (match, key) => translations[key] || match
+    );
+
+    localStorage.setItem('userLang', lang);
+  } catch (error) {
+    if (lang !== langConfig.defaultLang) {
+      loadLanguage(langConfig.defaultLang);
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('userLang');
+  loadLanguage(savedLang || langConfig.defaultLang);
+});
+
+</script>
+-->
+</main>

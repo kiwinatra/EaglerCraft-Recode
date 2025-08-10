@@ -1,0 +1,40 @@
+{
+    "$schema": "https://teavm.org/schema/tea-vm-config-1.1.json",
+    "target": "wasm",
+    "outputDir": "build/wasm",
+    "mainClass": "net.minecraft.client.Main",
+    "debug": false,
+    "minify": true,
+    "optimize": "balanced",
+    "heapSize": 256,
+    "stackSize": 8,
+    "features": {
+      "multithreading": false,
+      "simd": true,
+      "bulkMemory": true,
+      "exceptionHandling": true
+    },
+    "resources": {
+      "include": ["**/*.png", "**/*.ogg", "**/*.lang", "**/*.json"],
+      "exclude": ["**/debug/**"]
+    },
+    "wasm": {
+      "initialMemory": 256,
+      "maxMemory": 1024,
+      "exportMemory": true,
+      "enableGC": true
+    },
+    "plugins": {
+      "jso": {
+        "enabled": true
+      },
+      "filesystem": {
+        "enabled": true,
+        "persistent": true
+      }
+    },
+    "properties": {
+      "teavm.js.moduleType": "none",
+      "teavm.js.generateQueue": true
+    }
+  }

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://teavm.org/schema/tea-core-config-1.0.json",
+  "classFiles": [
+    "build/classes/**/*.class"
+  ],
+  "targetDirectory": "build/web",
+  "targetType": "JAVASCRIPT",
+  "mainClass": "net.minecraft.client.Minecraft",
+  "sourceMapsFileGenerated": false,
+  "minifying": true,
+  "optimizationLevel": "SIMPLE",  
+  "runtime": "RUNTIME",
+  "incremental": false,
+  "maxTopLevelNames": 10000,  
+  "classesToPreserve": [
+    "net.minecraft.**",
+    "com.google.**",
+    "org.apache.**"
+  ],
+  "properties": {
+    "teavm.js.moduleType": "NONE", 
+    "teavm.js.generateQueue": true,
+    "teavm.js.longjmp": "emulated"  
+  },
+  "wasm": {
+    "enabled": true              
+  },
+  "plugins": {
+    "jso": {
+      "enabled": true             
+    },
+    "threads": {
+      "enabled": false           
+    },
+    "resources": {
+      "enabled": true,            
+      "includes": ["**/*.png", "**/*.ogg", "**/*.lang"],
+      "excludes": ["**/debug/**"]
+    }
+  }
+}
