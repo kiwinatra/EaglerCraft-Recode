@@ -1,8 +1,6 @@
     <!DOCTYPE html>
     <html lang="ru">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>EaglerCraft - Играй в Minecraft в браузере</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +8,28 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="preload" href="static/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="preload" href="static/modal.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        []
+        <!-- [EA7] EaglerCraft Recode | Web Minecraft Client | v1.12.2_3.14 -->
+        <!-- [TeaVM] Java to WASM Compiler | v18.2 -->
+        <!-- [Eagtek] Network Protocol | v2.1.3 -->
+        <!-- [EaglX] Performance Module | v1.5.0 -->
+        <!-- [LOADER] Resource Loader | v2.0.4 -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Играйте в Minecraft прямо в браузере! EaglerCraft Recode — это оптимизированная версия Minecraft 1.12.2 с мультиплеером, работающая без скачивания.">
+        <meta name="keywords" content="Minecraft, EaglerCraft, играть онлайн, браузерная игра, майнкрафт в браузере, мультиплеер, WASM, TeaVM">
+        <meta name="author" content="Ваше имя / команда">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="EaglerCraft Recode — Minecraft в браузере">
+        <meta property="og:description" content="Играйте в Minecraft 1.12.2 прямо в браузере с друзьями!">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://eaglercraft.com">
+        <meta property="og:image" content="https://#">
+        <meta property="og:site_name" content="EaglerCraft">
+        <meta property="og:locale" content="ru_RU">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- Для iOS -->
+    <meta name="msapplication-TileColor" content="#2d2d2d"> <!-- Для Windows -->
+    <meta name="msapplication-config" content="/browserconfig.xml"> <!-- Для IE/Edge -->
     </head>
     <body>
         <div class="cursor"></div>
@@ -170,12 +189,48 @@
     </div>
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-64TQKQ7TWQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-64TQKQ7TWQ');
+</script>
+
+
+<!-- <script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  ym(353642, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+</script> -->
+
+
         <link rel="preload" href="static/log.js" as="script">
         <script src="static/log.js" defer></script>
         <link rel="preload" href="static/main.js" as="script">
         <script src="static/main.js" defer></script>
         <link rel="preload" href="static/modal.js" as="script">
         <script src="static/modal.js" defer></script>
+      <head_nix>
+        <link rel="manifest" href="/manifest.json">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="EaglerCraft">
+        <meta name="apple-mobile-web-app-title" content="EaglerCraft">
+        <meta name="theme-color" content="#16213e">
+      </head_nix>
+
+      
+      <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('SW registered:', registration))
+            .catch(error => console.log('SW registration failed:', error));
+        });
+      }
+      </script>
         
     </body>
     </html> 

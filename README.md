@@ -1,7 +1,7 @@
 #### 📈 **Статистика проекта**  
-[![Последний коммит](https://img.shields.io/github/last-commit/kiwinatra/eaglercraft-recode?style=for-the-badge&color=blue)](https://github.com/kiwinatra/Element-Android-App/commits)  
-[![Лицензия](https://img.shields.io/github/license/kiwinatra/eaglercrat-recode?style=for-the-badge&color=green)](https://github.com/kiwinatra/Element-Android-App/blob/main/LICENSE)  
-[![Открытые issues](https://img.shields.io/github/issues-raw/kiwinatra/eaglercrat-recode?style=for-the-badge&color=orange)](https://github.com/kiwinatra/Element-Android-App/issues)  
+[![Последний коммит](https://img.shields.io/github/last-commit/kiwinatra/eaglercraft-recode?style=for-the-badge&color=blue)](https://github.com/kiwinatra/eaglercraft-recode/commits)  
+[![Лицензия](https://img.shields.io/github/license/kiwinatra/eaglercrat-recode?style=for-the-badge&color=green)](https://github.com/kiwinatra/eaglercraft-recode/blob/main/LICENSE)  
+[![Открытые issues](https://img.shields.io/github/issues-raw/kiwinatra/eaglercrat-recode?style=for-the-badge&color=orange)](https://github.com/kiwinatra/eaglercraft-recode/issues)  
 
 <div align="center">
 

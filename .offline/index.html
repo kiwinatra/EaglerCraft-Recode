@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Offline Downloader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        minecraft: {
+                            dark: '#1a1a1a',
+                            green: '#4CAF50',
+                            darkgreen: '#2E7D32',
+                            orange: '#FF9800',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .bg-dots {
+                background-image: radial-gradient(circle, rgba(76,175,80,0.1) 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-minecraft-green to-minecraft-orange;
+            }
+        }
+    </style>
+</head>
+<body class="dark:bg-minecraft-dark bg-dots min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-gray-900/90 backdrop-blur-sm border border-gray-800 rounded-xl shadow-2xl overflow-hidden">
+        <!-- Круги фона -->
+        <div class="absolute -top-20 -left-20 w-64 h-64 bg-minecraft-green/10 rounded-full filter blur-xl opacity-70 animate-float"></div>
+        <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-minecraft-orange/10 rounded-full filter blur-xl opacity-70 animate-float animation-delay-2000"></div>
+        
+        <div class="p-6 relative z-10">
+            <h1 class="text-3xl font-bold text-center mb-6 text-gradient">
+                Minecraft Offline
+            </h1>
+            
+            <div class="space-y-3 mb-6">
+                <button 
+                    data-url="https://kiwinatra.github.io/mcx/wasm_jspi_1.8.9.html"
+                    class="version-btn w-full py-3 px-4 bg-minecraft-darkgreen/30 hover:bg-minecraft-darkgreen/50 border border-minecraft-green/30 rounded-lg text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-minecraft-green/10 hover:-translate-y-0.5"
+                >
+                    1.8.9 WASM Version
+                </button>
+                
+                <button 
+                    data-url="https://kiwinatra.github.io/mcx/eag_1.8.9_jspino.html"
+                    class="version-btn w-full py-3 px-4 bg-minecraft-darkgreen/30 hover:bg-minecraft-darkgreen/50 border border-minecraft-green/30 rounded-lg text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-minecraft-green/10 hover:-translate-y-0.5"
+                >
+                    1.8.9 Standard
+                </button>
+                
+                <button 
+                    data-url="https://kiwinatra.github.io/mcx/eag_1.12.2 offline.htm"
+                    class="version-btn w-full py-3 px-4 bg-minecraft-darkgreen/30 hover:bg-minecraft-darkgreen/50 border border-minecraft-green/30 rounded-lg text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-minecraft-green/10 hover:-translate-y-0.5"
+                >
+                    1.12.2 Version
+                </button>
+            </div>
+            
+            <button 
+                id="downloadBtn"
+                class="w-full py-3 px-4 bg-gradient-to-r from-minecraft-green to-minecraft-darkgreen text-white font-bold rounded-lg shadow-lg hover:shadow-minecraft-green/20 transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 hidden"
+            >
+                Download Selected Version
+            </button>
+        </div>
+    </div>
+
+    <script>
+       const versionButtons = document.querySelectorAll('.version-btn');
+const downloadBtn = document.getElementById('downloadBtn');
+let selectedUrl = '';
+
+// Выбор версии
+versionButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Сбрасываем выделение у всех кнопок
+        versionButtons.forEach(b => {
+            b.classList.remove('bg-green-600', 'ring-2', 'ring-green-400');
+            b.classList.add('bg-gray-800');
+        });
+        
+        // Выделяем выбранную версию
+        this.classList.remove('bg-gray-800');
+        this.classList.add('bg-green-600', 'ring-2', 'ring-green-400');
+        selectedUrl = this.getAttribute('data-url');
+        
+        // Активируем кнопку скачивания
+        downloadBtn.classList.remove('hidden', 'bg-red-500');
+        downloadBtn.textContent = `Скачать ${this.textContent.trim()}`;
+        downloadBtn.disabled = false;
+        
+        // Анимация выбора
+        this.animate([
+            { transform: 'scale(1)' },
+            { transform: 'scale(1.05)' },
+            { transform: 'scale(1)' }
+        ], { duration: 300 });
+    });
+});
+
+// Скачивание файла
+downloadBtn.addEventListener('click', async function() {
+    if (!selectedUrl) return;
+    
+    const originalText = this.textContent;
+    
+    // Показываем состояние загрузки
+    this.innerHTML = `
+        <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Скачивание...
+    `;
+    this.disabled = true;
+    
+    try {
+        // Получаем имя файла
+        let fileName = selectedUrl.split('/').pop();
+        if (selectedUrl.includes('1.12.2')) {
+            fileName = 'minecraft_1.12.2_offline.html';
+        }
+        
+        // Метод 1: Используем fetch + Blob (лучший способ)
+        const response = await fetch(selectedUrl);
+        if (!response.ok) throw new Error('Ошибка загрузки');
+        
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        
+        // Очистка
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(blobUrl);
+        }, 100);
+        
+        // Успешное скачивание
+        this.textContent = 'Скачано!';
+        
+    } catch (error) {
+        console.error('Ошибка:', error);
+        
+        // Метод 2: Fallback для локальных файлов
+        const a = document.createElement('a');
+        a.href = selectedUrl;
+        a.download = fileName || 'minecraft_offline.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        this.textContent = 'Скачивание началось!';
+    } finally {
+        setTimeout(() => {
+            this.textContent = originalText;
+            this.disabled = false;
+        }, 2000);
+    }
+});
+    </script>
+</body>
+</html>

@@ -41,3 +41,7 @@ misc:
 
 coreapi:
   apifetch: "tea-core.json"
+
+
+offlinemode:
+  enabled: true

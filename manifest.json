@@ -1,0 +1,10 @@
+{
+  "name": "EaglerCraft",
+  "short_name": "EaglerCraft",
+  "description": "Minecraft в браузере",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f13",
+  "theme_color": "#16213e",
+  "orientation": "landscape"
+}

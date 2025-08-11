@@ -43,6 +43,9 @@
       "sdk_version": "18.2",
       "LTS": true,
       "$api": "https://teavm.org/api/@latest_build"
+    },
+    "tea_offline": {
+      "version": "offline_1.71"
     }
   }
 }
