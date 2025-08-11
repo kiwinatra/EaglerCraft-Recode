@@ -141,7 +141,7 @@ class VersionSelectorUI {
     }
 }
 
-// Инициализация при загрузке
+// Инициализация при загрузке хз зач
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         await PreferenceManager.handleAutoRedirect();

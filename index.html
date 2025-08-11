@@ -28,8 +28,30 @@
         <meta property="og:site_name" content="EaglerCraft">
         <meta property="og:locale" content="ru_RU">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- Для iOS -->
-    <meta name="msapplication-TileColor" content="#2d2d2d"> <!-- Для Windows -->
-    <meta name="msapplication-config" content="/browserconfig.xml"> <!-- Для IE/Edge -->
+        <meta name="msapplication-TileColor" content="#2d2d2d"> <!-- Для Windows -->
+        <meta name="msapplication-config" content="/browserconfig.xml"> <!-- Для IE/Edge -->
+        <meta property="og:type" content="game">
+        <meta property="og:locale:alternate" content="en_US">
+        <meta property="og:image:width" content="1200"> 
+        <meta property="og:image:height" content="630">
+        <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.googletagmanager.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        img-src 'self' data: https:;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src 'self' https://www.google-analytics.com wss://*;
+        frame-src 'none';
+        worker-src 'self';
+    ">
+        <meta http-equiv="Permissions-Policy" content="
+        geolocation=(),
+        microphone=(),
+        camera=(),
+        payment=(),
+        fullscreen=(self),
+        interest-cohort=()
+    ">
     </head>
     <body>
         <div class="cursor"></div>
@@ -234,6 +256,19 @@
         });
       }
       </script>
+
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "VideoGame",
+            "name": "EaglerCraft",
+            "description": "Minecraft 1.12.2 в браузере с мультиплеером",
+            "url": "https://eaglercraft.com",
+            "genre": "Sandbox",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "Game"
+          }
+          </script>
         
     </body>
     </html> 
