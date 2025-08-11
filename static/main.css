@@ -465,3 +465,226 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
 }
+/* Changelog Section */
+.changelog {
+    padding: 6rem 2rem;
+    position: relative;
+    background: linear-gradient(
+        to bottom,
+        hsla(270, 50%, 10%, 0.8) 0%,
+        hsla(260, 50%, 5%, 0.9) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid hsla(0, 0%, 100%, 0.08);
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.08);
+}
+
+.changelog::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--secondary),
+        transparent
+    );
+}
+
+.changelog::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+}
+
+.changelog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.github-link-wrapper {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: linear-gradient(
+        135deg,
+        hsla(270, 50%, 20%, 0.6),
+        hsla(260, 50%, 15%, 0.8)
+    );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: linear-gradient(
+        135deg,
+        hsla(270, 50%, 25%, 0.7),
+        hsla(260, 50%, 20%, 0.9)
+    );
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.changelog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.changelog-card {
+    background: linear-gradient(
+        135deg,
+        hsla(270, 30%, 15%, 0.4),
+        hsla(260, 30%, 10%, 0.6)
+    );
+    padding: 1.8rem;
+    border-radius: 16px;
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.changelog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+}
+
+.changelog-card::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(123, 44, 191, 0.1) 0%,
+        rgba(157, 78, 221, 0) 20%,
+        rgba(255, 158, 0, 0.05) 80%,
+        rgba(255, 158, 0, 0.1) 100%
+    );
+    transform: rotate(30deg);
+    transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 0;
+}
+
+.changelog-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--accent);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+.changelog-card:hover::after {
+    top: -50%;
+    left: -50%;
+}
+
+.component-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--light);
+    position: relative;
+    z-index: 1;
+}
+
+.component-title i {
+    color: var(--accent);
+    width: 1.5rem;
+    text-align: center;
+}
+
+.version-badge {
+    display: inline-block;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+}
+
+.changes-list {
+    list-style: none;
+    padding-left: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.changes-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.7rem;
+    color: hsla(0, 0%, 100%, 0.8);
+    line-height: 1.5;
+}
+
+.changes-list li:before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .changelog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .changelog-card {
+        padding: 1.5rem;
+    }
+    
+    .changelog {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
