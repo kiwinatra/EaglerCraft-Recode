@@ -1,0 +1,1 @@
+import Foundation;final class UE:A{let o:String,e:E,p:B;init(o:String,e:E,p:B=false){self.o=o;self.e=e;self.p=p}func accept<T>(_ v:V<T>)->T{v.visit(self)}}

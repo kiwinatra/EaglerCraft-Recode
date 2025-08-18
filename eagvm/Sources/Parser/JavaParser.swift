@@ -1,0 +1,1 @@
+import Foundation;final class JP{private let t=Tokenizer(),s=SA();func p(_ c:String)throws->A{let ts=try t.t(c);return try s.a(ts)}}

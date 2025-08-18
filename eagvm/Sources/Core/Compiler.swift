@@ -1,0 +1,1 @@
+import Foundation;class Compiler{private let p=Parser(),t=Transformer(),g=Generator();func compile(_ s:String)->String{do{let a=try p.parse(s),js=t.transform(a);return g.generate(js)}catch{print("Compilation failed: \(error)");exit(1)}}

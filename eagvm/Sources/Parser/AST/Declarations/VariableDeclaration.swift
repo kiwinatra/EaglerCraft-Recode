@@ -1,0 +1,1 @@
+import Foundation;final class VD:A{let k:String,n:String,t:String?,i:E?;init(k:String,n:String,t:String?=nil,i:E?=nil){self.k=k;self.n=n;self.t=t;self.i=i}func accept<T>(_ v:V<T>)->T{v.visit(self)}};struct VL:A{let v:Any;func accept<T>(_ v:V<T>)->T{v.visit(self)}}

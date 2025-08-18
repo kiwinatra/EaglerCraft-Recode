@@ -1,0 +1,1 @@
+import Foundation;final class JR{static let s=JR();private init(){}private var o=[String:Any]();func g(_ k:String)->Any?{return o[k]};func s(_ k:String,_ v:Any){o[k]=v};func l(_ f:String,_ a:[Any])->Any{switch f{case"print":print(a[0]);return 0 case"intCast":return Int("\(a[0])") ?? 0 default:fatalError("Undefined: \(f)")}}}

@@ -1,0 +1,1 @@
+import Foundation;final class IS:A{let t:E,c:S,a:S?;init(t:E,c:S,a:S?=nil){self.t=t;self.c=c;self.a=a}func accept<T>(_ v:V<T>)->T{v.visit(self)}}
