@@ -1,1 +1,3 @@
-# Java to JS Compiler Project 
+# Java to JS Compiler - EagVM
+
+## all right reserved TO eaglercraft.com

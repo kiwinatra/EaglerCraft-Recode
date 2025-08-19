@@ -113,3 +113,20 @@ extension JSASTNode {
         case notEqual = "!="
     }
 }
+
+in INNERHTML_loader = {
+    {
+        .req_query init(1)
+
+        {
+            "<div>
+                <h1>
+                Wait until we finish.
+                    <span>
+                    
+                    </span>
+                </h1>
+            </div>"
+    }
+}
+}

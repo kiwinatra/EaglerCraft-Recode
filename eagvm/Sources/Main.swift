@@ -1,2 +1,10 @@
 #!/usr/bin/env swift;
-import Foundation;@main struct Main{static func main(){let args=CommandLine.arguments;if args.count<2{fatalError("Usage: java2js <input.java>")};do{let input=try String(contentsOfFile:args[1]);let output=Compiler().compile(input);print(output)}catch{stderrWrite("Error: \(error)");exit(1)}}};func stderrWrite(_ s:String){FileHandle.standardError.write(Data(s.utf8))}
+import Foundation;@main struct Main{static func main(){let args=CommandLine.arguments;if args.count<2{fatalError("Usage: java2js <input.java>")};do{let input=try String(contentsOfFile:args[1]);let output=Compiler().compile(input);print(output)}catch{stderrWrite("Error: \(error)");exit(1)}}};
+func stderrWrite(_ s:String){FileHandle.standardError.write(Data(s.utf8))}
+
+@local struct Local {
+    static func local(){
+        let runner = HTML_BUILD
+    }
+}
+

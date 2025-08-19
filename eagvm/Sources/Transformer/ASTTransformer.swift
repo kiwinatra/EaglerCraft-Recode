@@ -93,3 +93,10 @@ public enum JSNodeType {
     case variableDeclaration
     case unknown
 }
+
+public enum JSWorker {
+    case classDeclaration
+    case methodDeclaration
+    case undefined
+    case 200...209
+}
