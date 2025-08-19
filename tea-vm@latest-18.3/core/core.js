@@ -1,1 +1,79 @@
-var e=function(){var e={};e.readInt32=function t(e,l,w){return e[l>>w]},e.writeInt32=function n(e,l,w,h){e[l>>w]=h},e.alias=function r(e,l){return new e.constructor(e.buffer,l)},e.clamp=function o(e,l){return new e.constructor(e.buffer,e.byteOffset,l)},e.copy=function i(e,l,w){for(var h=0;h<w;h++)l[h]=e[h]},e.read=function a(e,l,w,h){for(var m=0;m<w;m++)h[m]=e[l+m]},e.write=function s(e,l,w,h){for(var m=0;m<w;m++)e[l+m]=h[m]},e.struct=function c(e,l){return{value:e,align:l}},e.readAligned=function u(e,l,w){if(l%w!=0)throw new Error("Unaligned access");return e[l>>2]},e.writeAligned=function f(e,l,w,h){if(l%w!=0)throw new Error("Unaligned access");e[l>>2]=h};var l={core:e};return"object"==typeof exports?module.exports=l:"function"==typeof define&&define.amd?define([],(function(){return l})):(window.TeaVM||(window.TeaVM={})).core=l}();e.core.init=function(){var l=e.core;l.memory=new WebAssembly.Memory({initial:256});var w=new Uint32Array(l.memory.buffer);l.heap=w,l.heap8=new Int8Array(l.memory.buffer),l.heap16=new Int16Array(l.memory.buffer),l.heap32=w},e.core.gc={alloc:function(l){var w=e.core.heap32,h=w[0];return w[0]=h+l,h},free:function(){}},e.core.exception={lastError:null,throwException:function(e){throw this.lastError=e,e},getException:function(){return this.lastError}},e.core.sys={getTime:function(){return Date.now()},log:function(e){console.log(e)},abort:function(e){throw new Error("Abort: "+e)}},e.core.thread={currentThread:0,createThread:function(){return++this.currentThread}},e.core.math={imul:Math.imul,clz32:Math.clz32},e.core.wasm={exports:{},imports:{}};
+var e = function() {
+	var e = {};
+	e.readInt32 = function t(e, l, w) {
+		return e[l >> w]
+	}, e.writeInt32 = function n(e, l, w, h) {
+		e[l >> w] = h
+	}, e.alias = function r(e, l) {
+		return new e.constructor(e.buffer, l)
+	}, e.clamp = function o(e, l) {
+		return new e.constructor(e.buffer, e.byteOffset, l)
+	}, e.copy = function i(e, l, w) {
+		for (var h = 0; h < w; h++) l[h] = e[h]
+	}, e.read = function a(e, l, w, h) {
+		for (var m = 0; m < w; m++) h[m] = e[l + m]
+	}, e.write = function s(e, l, w, h) {
+		for (var m = 0; m < w; m++) e[l + m] = h[m]
+	}, e.struct = function c(e, l) {
+		return {
+			value: e,
+			align: l
+		}
+	}, e.readAligned = function u(e, l, w) {
+		if (l % w != 0) throw new Error("Unaligned access");
+		return e[l >> 2]
+	}, e.writeAligned = function f(e, l, w, h) {
+		if (l % w != 0) throw new Error("Unaligned access");
+		e[l >> 2] = h
+	};
+	var l = {
+		core: e
+	};
+	return "object" == typeof exports ? module.exports = l : "function" == typeof define && define.amd ? define([], (function() {
+		return l
+	})) : (window.TeaVM || (window.TeaVM = {})).core = l
+}();
+e.core.init = function() {
+	var l = e.core;
+	l.memory = new WebAssembly.Memory({
+		initial: 256
+	});
+	var w = new Uint32Array(l.memory.buffer);
+	l.heap = w, l.heap8 = new Int8Array(l.memory.buffer), l.heap16 = new Int16Array(l.memory.buffer), l.heap32 = w
+}, e.core.gc = {
+	alloc: function(l) {
+		var w = e.core.heap32,
+			h = w[0];
+		return w[0] = h + l, h
+	},
+	free: function() {}
+}, e.core.exception = {
+	lastError: null,
+	throwException: function(e) {
+		throw this.lastError = e, e
+	},
+	getException: function() {
+		return this.lastError
+	}
+}, e.core.sys = {
+	getTime: function() {
+		return Date.now()
+	},
+	log: function(e) {
+		console.log(e)
+	},
+	abort: function(e) {
+		throw new Error("Abort: " + e)
+	}
+}, e.core.thread = {
+	currentThread: 0,
+	createThread: function() {
+		return ++this.currentThread
+	}
+}, e.core.math = {
+	imul: Math.imul,
+	clz32: Math.clz32
+}, e.core.wasm = {
+	exports: {},
+	imports: {}
+};

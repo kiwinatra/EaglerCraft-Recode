@@ -1,3 +1,6 @@
+// this is file what generates by running Eaglercraft
+// anyone who upload it to repo with site is dumbass :)
+
 "use strict";
 (function(){
 	const opts = {};
@@ -22,9 +25,9 @@
 		const domainStr = domain;
 		return (cid, path) => { return "https://" + cid + ".ipfs." + domain + "/" + path; };
 	}
-						// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-						// PATTERN VARIATIONS
-						// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+						// MARK: PATTERN VARIATIONS
+		// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	const IPFS_GATEWAYS = [
 		makePatternA("gateway.ipfs.io"),
 		makePatternB("4everland.io"),

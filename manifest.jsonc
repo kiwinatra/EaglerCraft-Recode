@@ -1,0 +1,410 @@
+// all wasm updates uploaded at: kiwinatra/eaglercraft-recode
+
+// recovery site: https://eagler4eagles.vercel.app/
+
+
+{
+  "name": "EaglerCraft Recode",
+  "short_name": "EaglerCraft",
+  "description": "Полноценный Minecraft Classic, портированный в веб с улучшенной графикой, модами и мультиплеером. Created by lax1dude.",
+  "start_url": "api.eagtek.to",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "background_color": "#0f0f13",
+  "theme_color": "#16213e",
+  "orientation": "landscape-primary",
+  "dir": "ltr",
+  "lang": "en-US",
+  "categories": ["entertainment", "games", "education"],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-large.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/gameplay-1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "EaglerCraft Gameplay - Building"
+    },
+    {
+      "src": "/screenshots/gameplay-2.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "EaglerCraft Gameplay - Exploration"
+    },
+    {
+      "src": "/screenshots/multiplayer-1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "EaglerCraft Multiplayer"
+    },
+    {
+      "src": "/screenshots/mobile-1.jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "EaglerCraft Mobile Experience"
+    },
+    {
+      "src": "/screenshots/mobile-2.jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "EaglerCraft Touch Controls"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Начать одиночную игру",
+      "short_name": "Одиночная",
+      "description": "Начать новую одиночную игру",
+      "url": "/index.html?gameMode=singleplayer",
+      "icons": [
+        {
+          "src": "/icons/shortcut-singleplayer.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Подключиться к серверу",
+      "short_name": "Мультиплеер",
+      "description": "Подключиться к multiplayer серверу",
+      "url": "/index.html?gameMode=multiplayer",
+      "icons": [
+        {
+          "src": "/icons/shortcut-multiplayer.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Настройки",
+      "short_name": "Настройки",
+      "description": "Открыть настройки игры",
+      "url": "/index.html?screen=options",
+      "icons": [
+        {
+          "src": "/icons/shortcut-settings.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Установленные моды",
+      "short_name": "Моды",
+      "description": "Управление установленными модами",
+      "url": "/index.html?screen=mods",
+      "icons": [
+        {
+          "src": "/icons/shortcut-mods.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Текстуры и скины",
+      "short_name": "Текстуры",
+      "description": "Управление текстурпаками и скинами",
+      "url": "/index.html?screen=textures",
+      "icons": [
+        {
+          "src": "/icons/shortcut-textures.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+eaglercraft",
+      "url": "/index.html?url=%s"
+    },
+    {
+      "protocol": "eaglercraft",
+      "url": "/index.html?connect=%s"
+    }
+  ],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  },
+  "file_handlers": [
+    {
+      "action": "/index.html?importWorld=%s",
+      "accept": {
+        "application/zip": [".zip", ".eworld"],
+        "application/x-gzip": [".gz"]
+      },
+      "name": "EaglerCraft World Save"
+    },
+    {
+      "action": "/index.html?installMod=%s",
+      "accept": {
+        "application/java-archive": [".jar", ".emod"],
+        "application/zip": [".zip"]
+      },
+      "name": "EaglerCraft Mod"
+    },
+    {
+      "action": "/index.html?installTexture=%s",
+      "accept": {
+        "application/zip": [".zip", ".etex"],
+        "image/png": [".png"],
+        "image/jpeg": [".jpg", ".jpeg"]
+      },
+      "name": "EaglerCraft Texture Pack"
+    }
+  ],
+  "share_target": {
+    "action": "/index.html?share=true",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "screenshot",
+          "accept": ["image/jpeg", "image/png"]
+        },
+        {
+          "name": "world",
+          "accept": ["application/zip", "application/x-gzip"]
+        }
+      ]
+    }
+  },
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://eaglercraft.com",
+      "id": "eaglercraft-recode"
+    }
+  ],
+  "prefer_related_applications": false,
+  "scope_extensions": [
+    {
+      "origin": "https://eaglercraft.com"
+    },
+    {
+      "origin": "https://*.eaglercraft.com"
+    },
+    {
+      "origin": "https://eaglercraft.net"
+    },
+    {
+      "origin": "https://*.eaglercraft.net"
+    }
+  ],
+  "widgets": [
+    {
+      "name": "Быстрый запуск EaglerCraft",
+      "tag": "quick-launch",
+      "template": "/widgets/quick-launch.html",
+      "ms_ac_template": "/widgets/quick-launch.json",
+      "data": "/api/widget-data/quick-launch",
+      "type": "application/json",
+      "sizes": ["1x1"],
+      "auth": false
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 360
+  },
+  "permissions": [
+    "clipboard-write",
+    "clipboard-read",
+    "storage",
+    "notifications",
+    "gamepad",
+    "pointer-lock",
+    "fullscreen"
+  ],
+  "optional_permissions": [
+    "file-system",
+    "idle-detection",
+    "periodic-background-sync"
+  ],
+  "background": {
+    "service_worker": "/sw.js",
+    "type": "module"
+  },
+  "serviceworker": {
+    "scope": "/",
+    "update_via_cache": "none"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["/js/content-script.js"]
+    }
+  ],
+  "side_panel": {
+    "default_path": "/sidepanel.html"
+  },
+  "version": "2.3.7",
+  "version_name": "EaglerCraft Recode - Enhanced Edition",
+  "author": "lax1dude, kiwinatra",
+  "homepage_url": "https://eaglercraft.com",
+  "developer": {
+    "name": "lax1dude",
+    "url": "https://github.com/kiwinatra",
+    "email": "kiwidev@atomicmail.io"
+  },
+  "repository": {
+    "url": "https://github.com/kiwinatra/eaglercraft-recode",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/kiwinatra/eaglercraft-recode/issues"
+  },
+  "donations": {
+    "patreon": "https://patreon.com/kiwinatra",
+    "buymeacoffee": "https://buymeacoffee.com/kiwinatra"
+  },
+  "default_locale": "en",
+  "locales": {
+    "ru": {
+      "name": "EaglerCraft Recode",
+      "description": "Полноценный Minecraft 1.12.2 в браузере с улучшенной графикой и модами"
+    },
+    "es": {
+      "name": "EaglerCraft Recode",
+      "description": "Minecraft 1.12.2 completo en el navegador con gráficos mejorados y mods"
+    },
+    "fr": {
+      "name": "EaglerCraft Recode",
+      "description": "Minecraft 1.12.2 complet dans le navigateur avec des graphismes améliorés et des mods"
+    },
+    "de": {
+      "name": "EaglerCraft Recode",
+      "description": "Vollständiges Minecraft 1.12.2 im Browser mit verbesserter Grafik und Mods"
+    },
+    "zh": {
+      "name": "EaglerCraft Recode",
+      "description": "带有增强图形和模组的完整浏览器版Minecraft 1.12.2"
+    },
+    "ja": {
+      "name": "EaglerCraft Recode",
+      "description": "強化されたグラフィックスとModを備えた完全なブラウザ版Minecraft 1.12.2"
+    }
+  },
+  "features": [
+    "WebGL 2.0",
+    "WebAudio",
+    "WebRTC",
+    "WebSockets",
+    "IndexedDB",
+    "File System Access",
+    "Gamepad API",
+    "Pointer Lock API"
+  ],
+  "requirements": [
+    "Modern browser with WebGL support",
+    "Minimum 2GB RAM recommended",
+    "Keyboard or touch controls",
+    "Stable internet connection for multiplayer"
+  ],
+  "categories": ["games", "entertainment", "education", "simulation"],
+  "keywords": [
+    "minecraft",
+    "eaglercraft",
+    "game",
+    "sandbox",
+    "blocks",
+    "building",
+    "multiplayer",
+    "webgl",
+    "html5",
+    "lax1dude"
+  ],
+  "suggestions": ["https://classic.minecraft.net", "https://opengl.org"],
+  "release_notes": "/changelog.txt",
+  "support_url": "https://kiwinatra.github.io/support",
+  "privacy_policy": "/privacy.html",
+  "terms_of_service": "/terms.html",
+  "rating": "Everyone 10+",
+  "rating_agency": "ESRB",
+  "interstitials": {
+    "on_exit": true,
+    "on_navigation": false
+  },
+  "captive_portal": {
+    "detection_url": "/api/captive-portal-test"
+  },
+  "display_mode": ["fullscreen", "standalone", "minimal-ui"],
+  "accepts": ["application/eaglercraft-world", "application/eaglercraft-mod"],
+  "color_scheme": "dark",
+  "theme_color_override": {
+    "dark": "#16213e",
+    "light": "#4cc9f0"
+  },
+  "user_preferences": {
+    "color_scheme": "dark"
+  },
+  "update_url": "https://eaglercraft.com/updates.xml"
+}

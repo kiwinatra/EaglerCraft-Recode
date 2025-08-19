@@ -1,51 +1,205 @@
 {
-  "$schema": "https://www.schemastore.org/package",
-  "classFiles": [
-    "build/classes/**/*.class"
-  ],
-  "targetDirectory": "build/web",
-  "targetType": "JAVASCRIPT",
-  "mainClass": "net.minecraft.client.Minecraft",
-  "sourceMapsFileGenerated": false,
-  "minifying": true,
-  "optimizationLevel": "SIMPLE",  
-  "runtime": "RUNTIME",
-  "incremental": false,
-  "maxTopLevelNames": 10000,  
+  "$schema": "https://teavm.org/schema/tea-core-config-1.5.json",
+  "project": {
+    "name": "EaglerCraft-Recode",
+    "version": "2.4.1",
+    "organization": "Kiwinatra-Studios",
+    "authors": ["lax1dude", "kiwinatra", "shonaax"],
+    "license": "EaglerCraft Public License v2.3"
+  },
+  "compilation": {
+    "targetType": "JAVASCRIPT",
+    "targetDirectory": "build/web/release",
+    "mainClass": "net.minecraft.client.Minecraft",
+    "minifying": true,
+    "optimizationLevel": "ADVANCED",
+    "sourceMaps": {
+      "generated": false,
+      "sourceFiles": true
+    },
+    "incremental": false,
+    "maxTopLevelNames": 15000,
+    "runtime": "RUNTIME",
+    "debugInformation": false,
+    "obfuscation": {
+      "enabled": true,
+      "excludedClasses": [
+        "net.minecraft.client.**",
+        "com.google.common.**",
+        "org.apache.logging.**"
+      ]
+    }
+  },
+  "classpath": {
+    "classFiles": [
+      "build/classes/java/main/**/*.class",
+      "build/classes/java/client/**/*.class",
+      "lib/teavm-classlib-0.8.2.jar"
+    ],
+    "excludedClasses": [
+      "**/test/**",
+      "**/debug/**",
+      "**/internal/**"
+    ]
+  },
   "classesToPreserve": [
     "net.minecraft.**",
     "com.google.**",
-    "org.apache.**"
+    "org.apache.**",
+    "java.**",
+    "javax.**"
   ],
   "properties": {
-    "teavm.js.moduleType": "NONE", 
+    "teavm.js.moduleType": "ES2020",
     "teavm.js.generateQueue": true,
-    "teavm.js.longjmp": "emulated"  
+    "teavm.js.longjmp": "emulated",
+    "teavm.js.strict": true,
+    "teavm.js.esVersion": "2020",
+    "teavm.heapSize": "67108864",
+    "teavm.stackSize": "524288",
+    "teavm.optimizationLevel": "MAXIMUM"
   },
   "wasm": {
-    "enabled": true              
+    "enabled": true,
+    "memoryMode": "GROWING",
+    "minMemorySize": "16777216",
+    "maxMemorySize": "268435456"
   },
   "plugins": {
     "jso": {
-      "enabled": true             
+      "enabled": true,
+      "generateWrappers": true
     },
     "threads": {
-      "enabled": false           
+      "enabled": false,
+      "maxWorkers": 4
     },
     "resources": {
-      "enabled": true,            
-      "includes": ["**/*.png", "**/*.ogg", "**/*.lang"],
-      "excludes": ["**/debug/**"]
+      "enabled": true,
+      "includes": [
+        "**/*.png",
+        "**/*.ogg",
+        "**/*.wav",
+        "**/*.lang",
+        "**/*.properties",
+        "**/*.json",
+        "**/*.dat"
+      ],
+      "excludes": [
+        "**/debug/**",
+        "**/test/**",
+        "**/temp/**"
+      ],
+      "resourcePackages": [
+        "net.minecraft.client.resources",
+        "net.minecraft.client.audio"
+      ]
     },
-    "authors": {
-      "author_vm": "shonaax, kiwinatra, laxdude, teavm.org",
-      "project_author": "shonaax",
-      "sdk_version": "18.2",
-      "LTS": true,
-      "$api": "https://teavm.org/api/@latest_build"
+    "reflection": {
+      "enabled": true,
+      "allDeclaredMethods": true,
+      "allDeclaredConstructors": true,
+      "allDeclaredFields": true,
+      "includedClasses": [
+        "net.minecraft.**",
+        "java.util.**"
+      ]
+    },
+    "exceptions": {
+      "enabled": true,
+      "stackTraces": true
+    },
+    "assertions": {
+      "enabled": false
+    },
+    "logging": {
+      "enabled": true,
+      "level": "WARN"
+    },
+    "date": {
+      "enabled": true,
+      "timezone": "UTC"
+    },
+    "unicode": {
+      "enabled": true
+    },
+    "collections": {
+      "enabled": true
+    },
+    "files": {
+      "enabled": true
+    },
+    "console": {
+      "enabled": true
+    },
+    "monitoring": {
+      "enabled": false
+    }
+  },
+  "transformations": {
+    "removeUnusedMethods": true,
+    "removeUnusedFields": true,
+    "removeUnusedClasses": true,
+    "aggressiveInline": true,
+    "devirtualize": true,
+    "constantPropagation": true
+  },
+  "cache": {
+    "enabled": true,
+    "directory": "build/teavm/cache",
+    "maxSize": "104857600"
+  },
+  "generated": {
+    "sourceDirectory": "build/teavm/generated",
+    "keepSources": false
+  },
+  "environment": {
+    "systemProperties": {
+      "java.version": "11",
+      "teavm.platform": "web",
+      "minecraft.version": "1.5.2",
+      "eaglercraft.optimized": "true"
+    }
+  },
+  "bundling": {
+    "enabled": true,
+    "outputFileName": "eaglercraft_fnp.js",
+    "compression": "BROTLI",
+    "chunking": {
+      "enabled": true,
+      "maxChunkSize": "1048576"
+    }
+  },
+  "verification": {
+    "enabled": true,
+    "level": "STRICT"
+  },
+  "monitoring": {
+    "progress": true,
+    "memoryUsage": true,
+    "timing": true
+  },
+  "extensions": {
+    "eaglercraft": {
+      "webglOptimizations": true,
+      "audioWorklet": true,
+      "wasmMemory": true,
+      "gzipCompression": true
     },
     "tea_offline": {
-      "version": "offline_1.71"
+      "version": "offline_1.12.1",
+      "cacheStrategies": ["AGGRESSIVE"]
     }
+  },
+  "metadata": {
+    "buildTimestamp": true,
+    "buildHost": true,
+    "compilerVersion": true,
+    "gitRevision": true
+  },
+  "output": {
+    "reportFile": "build/reports/teavm-build.json",
+    "statistics": true,
+    "warningsAsErrors": false
   }
 }

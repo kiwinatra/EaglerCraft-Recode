@@ -1,4 +1,7 @@
-// log.js - Красивый логгер для консоли
+
+// anyone who upload it to repo with site is dumbass :)
+
+
 const colors = {
     reset: '\x1b[0m',
     bright: '\x1b[1m',

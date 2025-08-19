@@ -45,3 +45,4 @@ coreapi:
 
 offlinemode:
   enabled: true
+  api: false
